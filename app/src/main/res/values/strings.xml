@@ -1,0 +1,111 @@
+<resources>
+    <string name="app_name">TrainingApp</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Note dialog -->
+    <string name="note_save">Note saved!</string>
+    <string name="note_delete">Note deleted</string>
+
+    <!-- General alert dialog strings -->
+    <string name="alert_positive">Yes</string>
+    <string name="alert_negative">No</string>
+
+    <!-- Note delete alert dialog -->
+    <string name="note_alert_message">Do you really want to delete this note?</string>
+
+    <!-- User delete alert dialog -->
+    <string name="user_alert_message">Do you really want to delete this technique?</string>
+
+    <!-- User dialog -->
+    <string name="user_name">Name</string>
+    <string name="user_description">Description</string>
+    <string name="user_note">Write a note...</string>
+    <string name="user_save">Save</string>
+    <string name="user_cancel">Cancel</string>
+    <string name="user_delete">Delete</string>
+    <string name="user_clear">Clear note</string>
+
+    <string name="user_item_added">Technique added!</string>
+    <string name="user_item_updated">Technique updated!</string>
+    <string name="user_item_deleted">Technique deleted</string>
+
+    <!-- Combatives -->
+    <string name="c_tab">Combatives</string>
+
+    <string name="c_jab">Jab</string>
+    <string name="c_jab_description">A simple straight jab</string>
+
+    <string name="c_cross">Cross</string>
+    <string name="c_cross_description">A straight punch with the trailing hand</string>
+
+    <string name="c_hook">Hook</string>
+    <string name="c_hook_description">Looping punch, keep elbow up at 90°</string>
+
+    <string name="c_uppercut">Uppercut</string>
+    <string name="c_uppercut_description">A short vertical looping punch, do not fire from the hip</string>
+
+    <!-- Combos -->
+    <string name="co_tab">Combos</string>
+
+    <string name="co_1">Combo 1</string>
+    <string name="co_1_description">Left jab</string>
+
+    <string name="co_2">Combo 2</string>
+    <string name="co_2_description">Left jab, right cross</string>
+
+    <string name="co_3">Combo 3</string>
+    <string name="co_3_description">Left jab, right cross, left hook</string>
+
+    <string name="co_4">Combo 4</string>
+    <string name="co_4_description">Left jab, right cross, left hook, right cross</string>
+
+    <string name="co_5">Combo 5</string>
+    <string name="co_5_description">Left jab, right cross, left body hook, left hook, right cross</string>
+
+    <string name="co_6">Combo 6</string>
+    <string name="co_6_description">Left jab, right cross, left hook, right body cross (ducking),
+        left hook, right cross</string>
+
+    <string name="co_7">Combo 7</string>
+    <string name="co_7_description">Right uppercut, left hook, right cross, left uppercut, right cross,
+        left hook, right cross</string>
+
+    <string name="co_jab_low">Jab low</string>
+    <string name="co_jab_low_description">Left jab, right cross (low), left upward elbow,
+        right elbow</string>
+
+    <string name="co_two_back">Two back</string>
+    <string name="co_two_back_description">Left jab, right cross, left jab (step back with left foot),
+        right cross (step back with right foot), left hook, right cross</string>
+
+    <string name="co_three_back">Three back</string>
+    <string name="co_three_back_description">Left jab, right cross, left hook,
+        right uppercut (step back with left foot), left hook (step back with right foot),
+        right cross</string>
+
+    <!-- Defenses -->
+    <string name="d_tab">Defenses</string>
+
+    <string name="d_choke_front">Choke from the front</string>
+    <string name="d_choke_front_description">Pluck, groin kick, clinch, finish</string>
+
+    <string name="d_choke_side">Choke from the side</string>
+    <string name="d_choke_side_description">Pluck with opposite sided hand, close side elbow to chin,
+        hammerfist, clinch, finish</string>
+
+    <string name="d_choke_back_static">Choke from the back, static</string>
+    <string name="d_choke_back_static_description">
+        Step to one side, strike to groin, clinch, finish</string>
+
+    <string name="d_choke_back_pushing">Choke from the rear, pushing</string>
+
+    <!-- Weapons -->
+    <string name="w_tab">Weapons</string>
+
+    <string name="w_downwards_knife_stab">Downwards knife stab</string>
+    <string name="w_downwards_knife_stab_description">Upwards 180 defense, keep elbow at 90°</string>
+
+    <!-- User -->
+    <string name="u_tab">User</string>
+
+</resources>
