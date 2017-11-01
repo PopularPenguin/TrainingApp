@@ -44,6 +44,27 @@
     <string name="c_uppercut">Uppercut</string>
     <string name="c_uppercut_description">A short vertical looping punch, do not fire from the hip</string>
 
+    <string name="c_hammerfist">Hammer fist</string>
+    <string name="c_hammerfist_description">Start with palm out and rotate it in as you strike</string>
+
+    <string name="c_side_hammerfist">Hammer fist to the side</string>
+    <string name="c_side_hammerfist_description">Look in the same direction as you strike</string>
+
+    <string name="c_back_hammerfist">Hammer fist to the back</string>
+    <string name="c_back_hammerfist_description">Look to your back as you strike</string>
+
+    <string name="c_elbow">Straight Elbow</string>
+    <string name="c_elbow_description">Straight in, keep hand touching chest</string>
+
+    <string name="c_upwards_elbow">Upwards elbow</string>
+    <string name="c_upwards_elbow_description">Rising elbow, straight up</string>
+
+    <string name="c_downwards_elbow">Downwards elbow</string>
+    <string name="c_downwards_elbow_description">Arm extends straight up, elbow goes straight down</string>
+
+    <string name="c_spinning_backfist">Spinning backfist</string>
+    <string name="c_spinning_backfist_description">360° spin with a backfist at the end</string>
+
     <!-- Combos -->
     <string name="co_tab">Combos</string>
 

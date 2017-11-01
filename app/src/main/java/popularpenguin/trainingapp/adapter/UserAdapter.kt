@@ -26,7 +26,7 @@ class UserAdapter(context: Context, var techniques: ArrayList<UserTechnique>):
 
         val technique = getItem(position)
 
-        val image = itemView.findViewById(R.id.note_image) as ImageView
+        val image: ImageView = itemView.findViewById(R.id.note_image)
         if (technique.note.isEmpty()) {
             image.visibility = View.INVISIBLE
         }
@@ -34,10 +34,10 @@ class UserAdapter(context: Context, var techniques: ArrayList<UserTechnique>):
             image.visibility = View.VISIBLE
         }
 
-        val nameText = itemView.findViewById(R.id.name_text) as TextView
+        val nameText: TextView = itemView.findViewById(R.id.name_text)
         nameText.text = technique.name
 
-        val descriptionText = itemView.findViewById(R.id.description_text) as TextView
+        val descriptionText: TextView = itemView.findViewById(R.id.description_text)
         descriptionText.text = technique.description
 
         return itemView
@@ -50,16 +50,16 @@ class UserAdapter(context: Context, var techniques: ArrayList<UserTechnique>):
         val dialog = Dialog(context)
         dialog.setContentView(R.layout.dialog_user)
 
-        val nameView = dialog.findViewById(R.id.user_dialog_name) as EditText
+        val nameView: EditText = dialog.findViewById(R.id.user_dialog_name)
         nameView.setText(technique.name)
 
-        val descriptionView = dialog.findViewById(R.id.user_dialog_description) as EditText
+        val descriptionView: EditText = dialog.findViewById(R.id.user_dialog_description)
         descriptionView.setText(technique.description)
 
-        val noteView = dialog.findViewById(R.id.user_dialog_note) as EditText
+        val noteView: EditText = dialog.findViewById(R.id.user_dialog_note)
         noteView.setText(technique.note)
 
-        val dialogSave = dialog.findViewById(R.id.user_dialog_save) as Button
+        val dialogSave: Button = dialog.findViewById(R.id.user_dialog_save)
         dialogSave.setOnClickListener {
             val name = if (nameView.text.isEmpty()) { "Technique" }
                 else { nameView.text.toString() }
@@ -91,7 +91,7 @@ class UserAdapter(context: Context, var techniques: ArrayList<UserTechnique>):
             dialog.dismiss()
         }
 
-        val dialogDelete = dialog.findViewById(R.id.user_dialog_delete) as Button
+        val dialogDelete: Button = dialog.findViewById(R.id.user_dialog_delete)
         dialogDelete.setOnClickListener {
             createDeleteDialog(context, technique)
 

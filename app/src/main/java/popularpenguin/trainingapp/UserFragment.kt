@@ -43,24 +43,25 @@ class UserFragment: Fragment() {
             uiThread {
                 adapter = UserAdapter(context, techniques)
 
-                val listView = view.findViewById(R.id.user_list) as ListView
+                val listView: ListView = view.findViewById(R.id.user_list)
                 listView.adapter = adapter
                 listView.onItemClickListener = adapter
             }
         }
 
-        val fab = view.findViewById(R.id.imageFab) as ImageView
+        val fab: ImageView = view.findViewById(R.id.imageFab)
         fab.setOnClickListener {
             val dialog = Dialog(context)
             dialog.setContentView(R.layout.dialog_user)
 
-            val nameView = dialog.findViewById(R.id.user_dialog_name) as EditText
+            val nameView: EditText = dialog.findViewById(R.id.user_dialog_name)
 
-            val descriptionView = dialog.findViewById(R.id.user_dialog_description) as EditText
+            val descriptionView: EditText = dialog.findViewById(R.id.user_dialog_description)
 
-            val noteView = dialog.findViewById(R.id.user_dialog_note) as EditText
+            val noteView: EditText = dialog.findViewById(R.id.user_dialog_note)
 
-            val dialogSave = dialog.findViewById(R.id.user_dialog_save) as Button
+            val dialogSave: Button = dialog.findViewById(R.id.user_dialog_save)
+
             dialogSave.setOnClickListener {
                 val name = if (nameView.text.isEmpty()) { "Technique" }
                 else { nameView.text.toString() }
@@ -89,7 +90,7 @@ class UserFragment: Fragment() {
                 dialog.dismiss()
             }
 
-            val dialogDelete = dialog.findViewById(R.id.user_dialog_delete) as Button
+            val dialogDelete: Button = dialog.findViewById(R.id.user_dialog_delete)
             dialogDelete.visibility = View.GONE
 
             dialog.show()

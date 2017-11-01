@@ -25,7 +25,7 @@ class TechniqueAdapter(context: Context, techniques: List<UserTechnique>) :
 
         val technique = getItem(position)
 
-        val image = itemView.findViewById(R.id.note_image) as ImageView
+        val image: ImageView = itemView.findViewById(R.id.note_image)
         if (technique.note.isEmpty()) {
             image.visibility = View.INVISIBLE
         }
@@ -33,10 +33,10 @@ class TechniqueAdapter(context: Context, techniques: List<UserTechnique>) :
             image.visibility = View.VISIBLE
         }
 
-        val nameText = itemView.findViewById(R.id.name_text) as TextView
+        val nameText: TextView = itemView.findViewById(R.id.name_text)
         nameText.text = technique.name
 
-        val descriptionText = itemView.findViewById(R.id.description_text) as TextView
+        val descriptionText: TextView = itemView.findViewById(R.id.description_text)
         descriptionText.text = technique.description
 
         return itemView
@@ -49,16 +49,16 @@ class TechniqueAdapter(context: Context, techniques: List<UserTechnique>) :
         val dialog = Dialog(context)
         dialog.setContentView(R.layout.dialog_note)
 
-        val nameView = dialog.findViewById(R.id.note_dialog_name) as TextView
+        val nameView: TextView = dialog.findViewById(R.id.note_dialog_name)
         nameView.text = technique.name
 
-        val descriptionView = dialog.findViewById(R.id.note_dialog_description) as TextView
+        val descriptionView: TextView= dialog.findViewById(R.id.note_dialog_description)
         descriptionView.text = technique.description
 
-        val noteView = dialog.findViewById(R.id.note_dialog_note) as EditText
+        val noteView: EditText = dialog.findViewById(R.id.note_dialog_note)
         noteView.setText(technique.note)
 
-        val dialogSave = dialog.findViewById(R.id.note_dialog_save) as Button
+        val dialogSave: Button = dialog.findViewById(R.id.note_dialog_save)
         dialogSave.setOnClickListener {
             val note = noteView.text.toString().trim()
 
@@ -80,7 +80,7 @@ class TechniqueAdapter(context: Context, techniques: List<UserTechnique>) :
             dialog.dismiss()
         }
 
-        val dialogDelete = dialog.findViewById(R.id.note_dialog_delete) as Button
+        val dialogDelete: Button = dialog.findViewById(R.id.note_dialog_delete)
         dialogDelete.setOnClickListener {
             if (!technique.note.isEmpty()) {
                 createDeleteDialog(context, technique)

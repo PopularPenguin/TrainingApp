@@ -42,7 +42,7 @@ class CombativesFragment : Fragment() {
             uiThread {
                 val adapter = TechniqueAdapter(context, list)
 
-                val listView = view.findViewById(R.id.list) as ListView
+                val listView: ListView = view.findViewById(R.id.list)
                 listView.adapter = adapter
                 listView.onItemClickListener = adapter
             }
@@ -75,7 +75,7 @@ class CombosFragment : Fragment() {
             uiThread {
                 val adapter = TechniqueAdapter(context, list)
 
-                val listView = view.findViewById(R.id.list) as ListView
+                val listView: ListView = view.findViewById(R.id.list)
                 listView.adapter = adapter
                 listView.onItemClickListener = adapter
             }
@@ -109,7 +109,7 @@ class DefensesFragment : Fragment() {
             uiThread {
                 val adapter = TechniqueAdapter(context, list)
 
-                val listView = view.findViewById(R.id.list) as ListView
+                val listView: ListView = view.findViewById(R.id.list)
                 listView.adapter = adapter
                 listView.onItemClickListener = adapter
             }
@@ -143,7 +143,7 @@ class WeaponsFragment : Fragment() {
             uiThread {
                 val adapter = TechniqueAdapter(context, list)
 
-                val listView = view.findViewById(R.id.list) as ListView
+                val listView: ListView = view.findViewById(R.id.list)
                 listView.adapter = adapter
                 listView.onItemClickListener = adapter
             }

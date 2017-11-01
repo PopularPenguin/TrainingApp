@@ -45,7 +45,14 @@ class DbHelper(private val ctx: Context) : ManagedSQLiteOpenHelper(ctx, "db", nu
                 Technique(ctx, R.string.c_jab, R.string.c_jab_description),
                 Technique(ctx, R.string.c_cross, R.string.c_cross_description),
                 Technique(ctx, R.string.c_hook, R.string.c_hook_description),
-                Technique(ctx, R.string.c_uppercut, R.string.c_uppercut_description))
+                Technique(ctx, R.string.c_uppercut, R.string.c_uppercut_description),
+                Technique(ctx, R.string.c_hammerfist, R.string.c_hammerfist_description),
+                Technique(ctx, R.string.c_side_hammerfist, R.string.c_side_hammerfist_description),
+                Technique(ctx, R.string.c_back_hammerfist, R.string.c_back_hammerfist_description),
+                Technique(ctx, R.string.c_elbow, R.string.c_elbow_description),
+                Technique(ctx, R.string.c_upwards_elbow, R.string.c_upwards_elbow_description),
+                Technique(ctx, R.string.c_downwards_elbow, R.string.c_downwards_elbow_description),
+                Technique(ctx, R.string.c_spinning_backfist, R.string.c_spinning_backfist_description))
 
         val combosList = listOf(
                 Technique(ctx, R.string.co_1, R.string.co_1_description),
