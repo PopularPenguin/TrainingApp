@@ -1,12 +1,12 @@
 package popularpenguin.trainingapp
 
 import android.os.Bundle
+import android.content.Context
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
-import org.jetbrains.anko.db.insert
 import org.jetbrains.anko.db.rowParser
 import org.jetbrains.anko.db.select
 import org.jetbrains.anko.doAsync
@@ -20,112 +20,50 @@ import popularpenguin.trainingapp.data.UserTechnique
 class CombativesFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? =
-            inflater.inflate(R.layout.list_layout, container, false)
+                              savedInstanceState: Bundle?): View? {
+        val view = inflater.inflate(R.layout.list_layout, container, false)
+        CategoryHelper(context, view).fetchFromDb(TrainingContract.CATEGORY_COMBATIVES)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val catName = TrainingContract.CATEGORY_COMBATIVES
-        val parser = rowParser { id: Long, name: String, desc: String, note: String ->
-            UserTechnique(id, name, desc, note)
-        }
-
-        doAsync {
-            val list = context.database.use {
-                select(NotesEntry.TABLE_NAME,
-                        NotesEntry._ID,
-                        NotesEntry.COLUMN_NAME,
-                        NotesEntry.COLUMN_DESCRIPTION,
-                        NotesEntry.COLUMN_NOTE)
-                        .whereSimple("${NotesEntry.COLUMN_CATEGORY} = ?", catName)
-                        .parseList(parser)
-            }
-            uiThread {
-                val adapter = TechniqueAdapter(context, list)
-
-                val listView: ListView = view.findViewById(R.id.list)
-                listView.adapter = adapter
-                listView.onItemClickListener = adapter
-            }
-        }
+        return view
     }
 }
 
 class CombosFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? =
-            inflater.inflate(R.layout.list_layout, container, false)
+                              savedInstanceState: Bundle?): View? {
+        val view = inflater.inflate(R.layout.list_layout, container, false)
+        CategoryHelper(context, view).fetchFromDb(TrainingContract.CATEGORY_COMBOS)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val catName = TrainingContract.CATEGORY_COMBOS
-        val parser = rowParser { id: Long, name: String, desc: String, note: String ->
-            UserTechnique(id, name, desc, note)
-        }
-
-        doAsync {
-            val list = context.database.use {
-                select(NotesEntry.TABLE_NAME,
-                        NotesEntry._ID,
-                        NotesEntry.COLUMN_NAME,
-                        NotesEntry.COLUMN_DESCRIPTION,
-                        NotesEntry.COLUMN_NOTE)
-                        .whereSimple("${NotesEntry.COLUMN_CATEGORY} = ?", catName)
-                        .parseList(parser)
-            }
-            uiThread {
-                val adapter = TechniqueAdapter(context, list)
-
-                val listView: ListView = view.findViewById(R.id.list)
-                listView.adapter = adapter
-                listView.onItemClickListener = adapter
-            }
-        }
+        return view
     }
 }
 
 class DefensesFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? =
-            inflater.inflate(R.layout.list_layout, container, false)
+                              savedInstanceState: Bundle?): View? {
+        val view = inflater.inflate(R.layout.list_layout, container, false)
+        CategoryHelper(context, view).fetchFromDb(TrainingContract.CATEGORY_DEFENSES)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-        val catName = TrainingContract.CATEGORY_DEFENSES
-        val parser = rowParser { id: Long, name: String, desc: String, note: String ->
-            UserTechnique(id, name, desc, note)
-        }
-
-        doAsync {
-            val list = context.database.use {
-                select(NotesEntry.TABLE_NAME,
-                        NotesEntry._ID,
-                        NotesEntry.COLUMN_NAME,
-                        NotesEntry.COLUMN_DESCRIPTION,
-                        NotesEntry.COLUMN_NOTE)
-                        .whereSimple("${NotesEntry.COLUMN_CATEGORY} = ?", catName)
-                        .parseList(parser)
-            }
-            uiThread {
-                val adapter = TechniqueAdapter(context, list)
-
-                val listView: ListView = view.findViewById(R.id.list)
-                listView.adapter = adapter
-                listView.onItemClickListener = adapter
-            }
-        }
+        return view
     }
 }
 
 class WeaponsFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? =
-            inflater.inflate(R.layout.list_layout, container, false)
+                              savedInstanceState: Bundle?): View? {
+        val view = inflater.inflate(R.layout.list_layout, container, false)
+        CategoryHelper(context, view).fetchFromDb(TrainingContract.CATEGORY_WEAPONS)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        return view
+    }
+}
 
-        val catName = TrainingContract.CATEGORY_WEAPONS
+class CategoryHelper(val context: Context, val view: View) {
+
+    fun fetchFromDb(category: String) {
         val parser = rowParser { id: Long, name: String, desc: String, note: String ->
             UserTechnique(id, name, desc, note)
         }
@@ -137,7 +75,7 @@ class WeaponsFragment : Fragment() {
                         NotesEntry.COLUMN_NAME,
                         NotesEntry.COLUMN_DESCRIPTION,
                         NotesEntry.COLUMN_NOTE)
-                        .whereSimple("${NotesEntry.COLUMN_CATEGORY} = ?", catName)
+                        .whereSimple("${NotesEntry.COLUMN_CATEGORY} = ?", category)
                         .parseList(parser)
             }
             uiThread {

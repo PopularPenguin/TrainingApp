@@ -105,9 +105,7 @@ class UserAdapter(context: Context, var techniques: ArrayList<UserTechnique>):
     private fun createDeleteDialog(ctx: Context, technique: UserTechnique) {
         AlertDialog.Builder(ctx)
                 .setMessage(R.string.user_alert_message)
-                .setPositiveButton(R.string.alert_positive,
-                        DialogInterface.OnClickListener { dialog, which ->
-
+                .setPositiveButton(R.string.alert_positive, { dialog, which ->
                             doAsync {
                                 context.database.use {
                                     delete("user", "_id = ${technique.id}", null)
@@ -122,11 +120,7 @@ class UserAdapter(context: Context, var techniques: ArrayList<UserTechnique>):
                                 }
                             }
                         })
-                .setNegativeButton(R.string.alert_negative,
-                        DialogInterface.OnClickListener { dialog, which ->
-
-                            dialog.dismiss()
-                        })
+                .setNegativeButton(R.string.alert_negative, { dialog, which -> dialog.dismiss() })
                 .show()
     }
 }

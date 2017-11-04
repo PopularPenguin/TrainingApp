@@ -96,9 +96,7 @@ class TechniqueAdapter(context: Context, techniques: List<UserTechnique>) :
     private fun createDeleteDialog(ctx: Context, technique: UserTechnique) {
         AlertDialog.Builder(ctx)
                 .setMessage(R.string.note_alert_message)
-                .setPositiveButton(R.string.alert_positive,
-                        DialogInterface.OnClickListener { dialog, which ->
-
+                .setPositiveButton(R.string.alert_positive, { dialog, which ->
                     doAsync {
                         technique.note = ""
                         context.database.use {
@@ -116,11 +114,7 @@ class TechniqueAdapter(context: Context, techniques: List<UserTechnique>) :
                         }
                     }
                 })
-                .setNegativeButton(R.string.alert_negative,
-                        DialogInterface.OnClickListener { dialog, which ->
-
-                    dialog.dismiss()
-                })
+                .setNegativeButton(R.string.alert_negative, { dialog, which -> dialog.dismiss() })
                 .show()
     }
 }
