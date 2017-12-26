@@ -10,27 +10,25 @@ class CategoryAdapter(val context: Context, fm: FragmentManager) : FragmentPager
 
     override fun getCount(): Int = 5
 
-    override fun getItem(position: Int): Fragment {
-        when (position) {
-            0 -> return CombativesFragment()
-            1 -> return CombosFragment()
-            2 -> return DefensesFragment()
-            3 -> return WeaponsFragment()
-            4 -> return UserFragment()
+    override fun getItem(position: Int): Fragment =
+            when (position) {
+                0 -> CombativesFragment()
+                1 -> CombosFragment()
+                2 -> DefensesFragment()
+                3 -> WeaponsFragment()
+                4 -> UserFragment()
 
-            else -> throw IllegalArgumentException("Invalid ViewPager position")
-        }
-    }
+                else -> throw IllegalArgumentException("Invalid ViewPager position")
+            }
 
-    override fun getPageTitle(position: Int): CharSequence {
-        when (position) {
-            0 -> return context.getString(R.string.c_tab)
-            1 -> return context.getString(R.string.co_tab)
-            2 -> return context.getString(R.string.d_tab)
-            3 -> return context.getString(R.string.w_tab)
-            4 -> return context.getString(R.string.u_tab)
+    override fun getPageTitle(position: Int): CharSequence =
+            when (position) {
+                0 -> context.getString(R.string.c_tab)
+                1 -> context.getString(R.string.co_tab)
+                2 -> context.getString(R.string.d_tab)
+                3 -> context.getString(R.string.w_tab)
+                4 -> context.getString(R.string.u_tab)
 
-            else -> throw IllegalArgumentException("Invalid ViewPager title")
-        }
-    }
+                else -> throw IllegalArgumentException("Invalid ViewPager title")
+            }
 }
