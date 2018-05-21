@@ -22,7 +22,7 @@ class CombativesFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.list_layout, container, false)
-        CategoryHelper(context, view).fetchFromDb(TrainingContract.CATEGORY_COMBATIVES)
+        CategoryHelper(context!!, view).fetchFromDb(TrainingContract.CATEGORY_COMBATIVES)
 
         return view
     }
@@ -33,7 +33,7 @@ class CombosFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.list_layout, container, false)
-        CategoryHelper(context, view).fetchFromDb(TrainingContract.CATEGORY_COMBOS)
+        CategoryHelper(context!!, view).fetchFromDb(TrainingContract.CATEGORY_COMBOS)
 
         return view
     }
@@ -44,7 +44,7 @@ class DefensesFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.list_layout, container, false)
-        CategoryHelper(context, view).fetchFromDb(TrainingContract.CATEGORY_DEFENSES)
+        CategoryHelper(context!!, view).fetchFromDb(TrainingContract.CATEGORY_DEFENSES)
 
         return view
     }
@@ -55,7 +55,7 @@ class WeaponsFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.list_layout, container, false)
-        CategoryHelper(context, view).fetchFromDb(TrainingContract.CATEGORY_WEAPONS)
+        CategoryHelper(context!!, view).fetchFromDb(TrainingContract.CATEGORY_WEAPONS)
 
         return view
     }

@@ -32,7 +32,7 @@ class UserFragment: Fragment() {
         }
 
         doAsync {
-            techniques = context.database.use {
+            techniques = context!!.database.use {
                 select("user",
                         "_id",
                         UserEntry.COLUMN_NAME,
@@ -41,7 +41,7 @@ class UserFragment: Fragment() {
                         .parseList(parser)
             } as ArrayList<UserTechnique>
             uiThread {
-                adapter = UserAdapter(context, techniques)
+                adapter = UserAdapter(context!!, techniques)
 
                 val listView: ListView = view.findViewById(R.id.user_list)
                 listView.adapter = adapter
@@ -71,7 +71,7 @@ class UserFragment: Fragment() {
                 // Insert into db
 
                 doAsync {
-                    val id = context.database.use {
+                    val id = context!!.database.use {
                         insert("user",
                                 UserEntry.COLUMN_NAME to name,
                                 UserEntry.COLUMN_DESCRIPTION to description,
