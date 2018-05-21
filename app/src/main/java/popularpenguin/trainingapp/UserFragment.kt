@@ -2,6 +2,7 @@ package popularpenguin.trainingapp
 
 import android.app.Dialog
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -21,12 +22,15 @@ class UserFragment: Fragment() {
 
     lateinit var adapter: UserAdapter
     lateinit var techniques: ArrayList<UserTechnique>
+    lateinit var rootView: View
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? =
             inflater.inflate(R.layout.user_list_layout, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        rootView = view.rootView
+
         val parser = rowParser { id: Long, name: String, desc: String, note: String ->
             UserTechnique(id, name, desc, note)
         }
@@ -83,7 +87,8 @@ class UserFragment: Fragment() {
 
                         adapter.notifyDataSetChanged()
 
-                        Toast.makeText(context, R.string.user_item_added, Toast.LENGTH_SHORT).show()
+                        Snackbar.make(rootView, R.string.user_item_added, Snackbar.LENGTH_SHORT)
+                                .show()
                     }
                 }
 

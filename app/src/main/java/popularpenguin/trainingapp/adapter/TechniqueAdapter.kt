@@ -3,6 +3,7 @@ package popularpenguin.trainingapp.adapter
 import android.app.Dialog
 import android.content.Context
 import android.content.DialogInterface
+import android.support.design.widget.Snackbar
 import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +19,8 @@ import popularpenguin.trainingapp.data.TrainingContract.NotesEntry
 
 class TechniqueAdapter(context: Context, techniques: List<UserTechnique>) :
         ArrayAdapter<UserTechnique>(context, 0, techniques), AdapterView.OnItemClickListener {
+
+    lateinit var rootView: View
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val itemView = convertView ?:
@@ -38,6 +41,8 @@ class TechniqueAdapter(context: Context, techniques: List<UserTechnique>) :
 
         val descriptionText: TextView = itemView.findViewById(R.id.description_text)
         descriptionText.text = technique.description
+
+        rootView = image.rootView
 
         return itemView
     }
@@ -73,7 +78,8 @@ class TechniqueAdapter(context: Context, techniques: List<UserTechnique>) :
 
                     notifyDataSetChanged()
 
-                    Toast.makeText(context, R.string.note_save, Toast.LENGTH_SHORT).show()
+                    Snackbar.make(rootView, R.string.note_save, Snackbar.LENGTH_SHORT)
+                            .show()
                 }
             }
 
@@ -110,7 +116,8 @@ class TechniqueAdapter(context: Context, techniques: List<UserTechnique>) :
 
                             dialog.dismiss()
 
-                            Toast.makeText(context, R.string.note_delete, Toast.LENGTH_SHORT).show()
+                            Snackbar.make(rootView, R.string.note_delete, Snackbar.LENGTH_SHORT)
+                                    .show()
                         }
                     }
                 })

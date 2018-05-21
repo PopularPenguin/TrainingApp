@@ -2,7 +2,7 @@ package popularpenguin.trainingapp.adapter
 
 import android.app.Dialog
 import android.content.Context
-import android.content.DialogInterface
+import android.support.design.widget.Snackbar
 import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +19,8 @@ import popularpenguin.trainingapp.data.TrainingContract.UserEntry
 class UserAdapter(context: Context, var techniques: ArrayList<UserTechnique>):
         ArrayAdapter<UserTechnique>(context, 0, techniques),
         AdapterView.OnItemClickListener {
+
+    lateinit var rootView: View
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val itemView = convertView ?:
@@ -39,6 +41,8 @@ class UserAdapter(context: Context, var techniques: ArrayList<UserTechnique>):
 
         val descriptionText: TextView = itemView.findViewById(R.id.description_text)
         descriptionText.text = technique.description
+
+        rootView = itemView.rootView
 
         return itemView
     }
@@ -84,7 +88,8 @@ class UserAdapter(context: Context, var techniques: ArrayList<UserTechnique>):
 
                     notifyDataSetChanged()
 
-                    Toast.makeText(context, R.string.user_item_updated, Toast.LENGTH_SHORT).show()
+                    Snackbar.make(rootView, R.string.user_item_updated, Snackbar.LENGTH_SHORT)
+                            .show()
                 }
             }
 
@@ -116,7 +121,10 @@ class UserAdapter(context: Context, var techniques: ArrayList<UserTechnique>):
 
                                     dialog.dismiss()
 
-                                    Toast.makeText(context, R.string.user_item_deleted, Toast.LENGTH_SHORT).show()
+                                    Snackbar.make(rootView,
+                                            R.string.user_item_deleted,
+                                            Snackbar.LENGTH_SHORT)
+                                            .show()
                                 }
                             }
                         })
