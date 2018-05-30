@@ -55,10 +55,10 @@ class UserAdapter(context: Context, var techniques: ArrayList<UserTechnique>):
         dialog.setContentView(R.layout.dialog_user)
 
         val nameView: EditText = dialog.findViewById(R.id.user_dialog_name)
-        nameView.setText(technique.name)
+        nameView.setText(technique.fullName)
 
         val descriptionView: EditText = dialog.findViewById(R.id.user_dialog_description)
-        descriptionView.setText(technique.description)
+        descriptionView.setText(technique.fullDescription)
 
         val noteView: EditText = dialog.findViewById(R.id.user_dialog_note)
         noteView.setText(technique.note)
@@ -84,11 +84,11 @@ class UserAdapter(context: Context, var techniques: ArrayList<UserTechnique>):
                     technique.description = description
                     technique.note = note
 
-                    techniques.set(position, technique)
+                    techniques[position] = technique
 
                     notifyDataSetChanged()
 
-                    Snackbar.make(rootView, R.string.user_item_updated, Snackbar.LENGTH_SHORT)
+                    Snackbar.make(view!!, R.string.user_item_updated, Snackbar.LENGTH_SHORT)
                             .show()
                 }
             }

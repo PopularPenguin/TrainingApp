@@ -65,6 +65,12 @@
     <string name="c_spinning_backfist">Spinning backfist</string>
     <string name="c_spinning_backfist_description">360° spin with a backfist at the end</string>
 
+    <string name="c_spear_jab">Spear jab</string>
+    <string name="c_spear_jab_description">A jab performed low at an upwards angle</string>
+
+    <string name="c_overhand_cross">Overhand cross</string>
+    <string name="c_overhand_cross_description">A cross that loops over the top</string>
+
     <!-- Combos -->
     <string name="co_tab">Combos</string>
 
@@ -104,6 +110,13 @@
         right uppercut (step back with left foot), left hook (step back with right foot),
         right cross</string>
 
+    <string name="co_two_slip">Two slip</string>
+    <string name="co_two_slip_description">Jab, cross, slip right, cross, hook, cross</string>
+
+    <string name="co_three_slip">Three slip</string>
+    <string name="co_three_slip_description">Jab, cross, left hook, slip left, left hook,
+        right cross</string>
+
     <!-- Defenses -->
     <string name="d_tab">Defenses</string>
 
@@ -119,6 +132,16 @@
         Step to one side, strike to groin, clinch, finish</string>
 
     <string name="d_choke_back_pushing">Choke from the rear, pushing</string>
+    <string name="d_choke_back_pushing_description">Settle, spear one hand straight up,
+        rotate the choke off, strike, clinch, finish</string>
+
+    <string name="d_side_headlock">Headlock from side</string>
+    <string name="d_side_headlock_description">Groin strike, strike chin/eyes, push head back,
+        hammer fist to face, finish</string>
+
+    <string name="d_side_headlock_pulling">Headlock from side with intent to go to ground</string>
+    <string name="d_side_headlock_pulling_description">Close hand on attacker\'s shoulder, opposite
+        arm through attacker\'s legs spearing above the knee, roll through, finish on ground</string>
 
     <!-- Weapons -->
     <string name="w_tab">Weapons</string>

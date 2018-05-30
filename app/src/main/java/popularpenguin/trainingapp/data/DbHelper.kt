@@ -37,7 +37,7 @@ class DbHelper(private val ctx: Context) : ManagedSQLiteOpenHelper(ctx, "db", nu
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        // Insert new entries here and in addData()
+        // Insert new entries here and in addData(), move old version techniques out each upgrade
     }
 
     fun addData(db: SQLiteDatabase) {
@@ -52,7 +52,9 @@ class DbHelper(private val ctx: Context) : ManagedSQLiteOpenHelper(ctx, "db", nu
                 Technique(ctx, R.string.c_elbow, R.string.c_elbow_description),
                 Technique(ctx, R.string.c_upwards_elbow, R.string.c_upwards_elbow_description),
                 Technique(ctx, R.string.c_downwards_elbow, R.string.c_downwards_elbow_description),
-                Technique(ctx, R.string.c_spinning_backfist, R.string.c_spinning_backfist_description))
+                Technique(ctx, R.string.c_spinning_backfist, R.string.c_spinning_backfist_description),
+                Technique(ctx, R.string.c_spear_jab, R.string.c_spear_jab_description),
+                Technique(ctx, R.string.c_overhand_cross, R.string.c_overhand_cross_description))
 
         val combosList = listOf(
                 Technique(ctx, R.string.co_1, R.string.co_1_description),
@@ -64,12 +66,17 @@ class DbHelper(private val ctx: Context) : ManagedSQLiteOpenHelper(ctx, "db", nu
                 Technique(ctx, R.string.co_7, R.string.co_7_description),
                 Technique(ctx, R.string.co_jab_low, R.string.co_jab_low_description),
                 Technique(ctx, R.string.co_two_back, R.string.co_two_back_description),
-                Technique(ctx, R.string.co_three_back, R.string.co_three_back_description))
+                Technique(ctx, R.string.co_three_back, R.string.co_three_back_description),
+                Technique(ctx, R.string.co_two_slip, R.string.co_two_slip_description),
+                Technique(ctx, R.string.co_three_slip, R.string.co_three_slip_description))
 
         val defensesList = listOf(
                 Technique(ctx, R.string.d_choke_front, R.string.d_choke_front_description),
                 Technique(ctx, R.string.d_choke_side, R.string.d_choke_side_description),
-                Technique(ctx, R.string.d_choke_back_static, R.string.d_choke_back_static_description))
+                Technique(ctx, R.string.d_choke_back_static, R.string.d_choke_back_static_description),
+                Technique(ctx, R.string.d_choke_back_pushing, R.string.d_choke_back_pushing_description),
+                Technique(ctx, R.string.d_side_headlock, R.string.d_side_headlock_description),
+                Technique(ctx, R.string.d_side_headlock_pulling, R.string.d_side_headlock_pulling_description))
 
         val weaponsList = listOf(
                 Technique(ctx, R.string.w_downwards_knife_stab, R.string.w_downwards_knife_stab_description))
@@ -79,7 +86,7 @@ class DbHelper(private val ctx: Context) : ManagedSQLiteOpenHelper(ctx, "db", nu
         for (technique in combativesList) {
             db.insertOrThrow(NotesEntry.TABLE_NAME,
                     NotesEntry.COLUMN_CATEGORY to TrainingContract.CATEGORY_COMBATIVES,
-                    NotesEntry.COLUMN_NAME to technique.name,
+                    NotesEntry.COLUMN_NAME to technique.fullName,
                     NotesEntry.COLUMN_DESCRIPTION to technique.fullDescription,
                     NotesEntry.COLUMN_NOTE to technique.note)
         }
@@ -87,24 +94,24 @@ class DbHelper(private val ctx: Context) : ManagedSQLiteOpenHelper(ctx, "db", nu
         for (technique in combosList) {
             db.insertOrThrow(NotesEntry.TABLE_NAME,
                     NotesEntry.COLUMN_CATEGORY to TrainingContract.CATEGORY_COMBOS,
-                    NotesEntry.COLUMN_NAME to technique.name,
-                    NotesEntry.COLUMN_DESCRIPTION to technique.description,
+                    NotesEntry.COLUMN_NAME to technique.fullName,
+                    NotesEntry.COLUMN_DESCRIPTION to technique.fullDescription,
                     NotesEntry.COLUMN_NOTE to technique.note)
         }
 
         for (technique in defensesList) {
             db.insertOrThrow(NotesEntry.TABLE_NAME,
                     NotesEntry.COLUMN_CATEGORY to TrainingContract.CATEGORY_DEFENSES,
-                    NotesEntry.COLUMN_NAME to technique.name,
-                    NotesEntry.COLUMN_DESCRIPTION to technique.description,
+                    NotesEntry.COLUMN_NAME to technique.fullName,
+                    NotesEntry.COLUMN_DESCRIPTION to technique.fullDescription,
                     NotesEntry.COLUMN_NOTE to technique.note)
         }
 
         for (technique in weaponsList) {
             db.insertOrThrow(NotesEntry.TABLE_NAME,
                     NotesEntry.COLUMN_CATEGORY to TrainingContract.CATEGORY_WEAPONS,
-                    NotesEntry.COLUMN_NAME to technique.name,
-                    NotesEntry.COLUMN_DESCRIPTION to technique.description,
+                    NotesEntry.COLUMN_NAME to technique.fullName,
+                    NotesEntry.COLUMN_DESCRIPTION to technique.fullDescription,
                     NotesEntry.COLUMN_NOTE to technique.note)
         }
     }

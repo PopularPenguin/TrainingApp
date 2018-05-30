@@ -29,7 +29,7 @@ class UserFragment: Fragment() {
             inflater.inflate(R.layout.user_list_layout, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        rootView = view.rootView
+        rootView = view
 
         val parser = rowParser { id: Long, name: String, desc: String, note: String ->
             UserTechnique(id, name, desc, note)

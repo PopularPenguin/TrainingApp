@@ -13,6 +13,7 @@ import org.jetbrains.anko.db.update
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import popularpenguin.trainingapp.R
+import popularpenguin.trainingapp.data.Technique
 import popularpenguin.trainingapp.data.UserTechnique
 import popularpenguin.trainingapp.data.database
 import popularpenguin.trainingapp.data.TrainingContract.NotesEntry
@@ -42,7 +43,7 @@ class TechniqueAdapter(context: Context, techniques: List<UserTechnique>) :
         val descriptionText: TextView = itemView.findViewById(R.id.description_text)
         descriptionText.text = technique.description
 
-        rootView = image.rootView
+        rootView = itemView.rootView
 
         return itemView
     }
@@ -55,10 +56,10 @@ class TechniqueAdapter(context: Context, techniques: List<UserTechnique>) :
         dialog.setContentView(R.layout.dialog_note)
 
         val nameView: TextView = dialog.findViewById(R.id.note_dialog_name)
-        nameView.text = technique.name
+        nameView.text = technique.fullName
 
         val descriptionView: TextView= dialog.findViewById(R.id.note_dialog_description)
-        descriptionView.text = technique.description
+        descriptionView.text = technique.fullDescription
 
         val noteView: EditText = dialog.findViewById(R.id.note_dialog_note)
         noteView.setText(technique.note)
